@@ -10,6 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+
+    // the root navigation controller
     static var navigationController: UINavigationController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,9 +23,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        let rootController = DogListViewController(nibName: "DogListViewController", bundle: nil)
-        rootController.presenter = DogListPresenter(api: DogApi(), delegate: rootController)
+        // apply styling for navigation bar
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UIBarButtonItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
 
+        // setup the root controller
+        let rootController = DogListViewController(nibName: "DogListViewController", bundle: nil)
+
+        // inject the presenter
+        rootController.presenter = DogListPresenter(repository: DogRepository(), delegate: rootController)
+
+        // setup the root navigation controller
         let nav = UINavigationController(rootViewController: rootController)
         window?.rootViewController = nav
         window?.backgroundColor = UIColor.white

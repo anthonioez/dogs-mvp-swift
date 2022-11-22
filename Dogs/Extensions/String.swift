@@ -9,6 +9,7 @@ import Foundation
 
 extension String {
 
+    // format dog weight
     func formatWeight() -> String {
         let weight = self.replacingOccurrences(of: " ", with: "")
         if !weight.isEmpty {
@@ -18,6 +19,7 @@ extension String {
         }
     }
 
+    // format dog height
     func formatHeight() -> String {
         let height = self.replacingOccurrences(of: " ", with: "")
         if !height.isEmpty {

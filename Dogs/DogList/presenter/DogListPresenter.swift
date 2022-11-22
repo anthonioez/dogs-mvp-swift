@@ -7,33 +7,46 @@
 
 import Foundation
 
+// Presenter in MVP for the Featured Breeds
 final class DogListPresenter {
 
+    // weak reference to the view controller for this presenter
     private weak var delegate: DogListPresenterProtocol?
 
-    private let api: DogApi!
+    // api repository via Dependency Injection
+    private let repository: DogRepository!
 
+    // stores the list of breeds fetched from the repository
     var breeds = [DogBreed]()
-    var error: String?
 
+    // stores the last error from a fetch
+    var error: DogRepositoryError?
+
+    // return the number of available breeds
     var numberOfBreeds: Int {
         return breeds.count
     }
 
-    init(api: DogApi, delegate: DogListPresenterProtocol) {
-        self.api = api
+    // initialize the presenter via dependency injection
+    init(repository: DogRepository, delegate: DogListPresenterProtocol) {
+        self.repository = repository
         self.delegate = delegate
     }
 
+    // call the repository to fetch breeds while notifying the view controller
     func fetchBreeds() {
+        // notify the UI of start of fetch
         error = nil
         delegate?.fetchStarting()
 
-        api.fetchBreeds { error, list in
+        repository.request(router: DogRouter.getBreed) { (error: DogRepositoryError?, list: [DogBreed]?) in
+            // return to the UI thread
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
 
+                // notify the UI of success/failure
                 if let list = list {
+                    // return the first 105 breeds
                     self.breeds.append(contentsOf: list.prefix(105))
                     self.delegate?.fetchCompleted()
                 } else {
@@ -44,6 +57,7 @@ final class DogListPresenter {
         }
     }
 
+    // return the dog breed at the given index
     func breedAt(index: Int) -> DogBreed? {
         if index >= 0 && index < breeds.count {
             return breeds[index]
@@ -51,8 +65,10 @@ final class DogListPresenter {
         return nil
     }
 
+    // select the dog breed at the given index
     func selectBreed(index: Int) {
         if let breed = breedAt(index: index) {
+            // notify the view controller to navigate to the detail page
             delegate?.openDetail(breed: breed)
         }
     }

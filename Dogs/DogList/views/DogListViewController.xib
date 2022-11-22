@@ -21,26 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GMa-tF-H7g">
-                    <rect key="frame" x="0.0" y="47" width="390" height="48"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Featured Breeds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZc-Rh-ifH">
-                            <rect key="frame" x="20" y="13.333333333333334" width="350" height="21.333333333333329"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="DZc-Rh-ifH" firstAttribute="centerY" secondItem="GMa-tF-H7g" secondAttribute="centerY" id="Dha-Bu-p3g"/>
-                        <constraint firstAttribute="trailing" secondItem="DZc-Rh-ifH" secondAttribute="trailing" constant="20" id="GPr-7g-V9G"/>
-                        <constraint firstItem="DZc-Rh-ifH" firstAttribute="leading" secondItem="GMa-tF-H7g" secondAttribute="leading" constant="20" id="ZIr-t5-xh4"/>
-                        <constraint firstAttribute="height" constant="48" id="fL7-NA-6cR"/>
-                    </constraints>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VhH-el-vWZ">
-                    <rect key="frame" x="0.0" y="95" width="390" height="749"/>
+                    <rect key="frame" x="0.0" y="47" width="390" height="797"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vsK-Kf-3Ei">
@@ -54,11 +36,8 @@
                 <constraint firstItem="vsK-Kf-3Ei" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="0Eg-FJ-dT0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VhH-el-vWZ" secondAttribute="trailing" id="IFK-6t-Pj7"/>
                 <constraint firstItem="vsK-Kf-3Ei" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="KIE-8B-2hT"/>
-                <constraint firstItem="GMa-tF-H7g" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="N3J-hy-Ukk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="GMa-tF-H7g" secondAttribute="leading" id="PV9-G9-isa"/>
                 <constraint firstAttribute="bottom" secondItem="VhH-el-vWZ" secondAttribute="bottom" id="QT1-1C-JgX"/>
-                <constraint firstItem="GMa-tF-H7g" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="eLW-GH-byF"/>
-                <constraint firstItem="VhH-el-vWZ" firstAttribute="top" secondItem="GMa-tF-H7g" secondAttribute="bottom" id="hfD-En-dMk"/>
+                <constraint firstItem="VhH-el-vWZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="koU-ii-Q61"/>
                 <constraint firstItem="VhH-el-vWZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="p5b-57-X16"/>
             </constraints>
             <point key="canvasLocation" x="47.692307692307693" y="20.616113744075829"/>

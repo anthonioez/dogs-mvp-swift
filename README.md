@@ -2,4 +2,4 @@
 
 Signup at https://thedogapi.com/ for API Key. 
 
-Then add API key to DogApi.swift 
+Then add API key to DogRouter.swift 

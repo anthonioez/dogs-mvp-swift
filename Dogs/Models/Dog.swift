@@ -9,6 +9,7 @@ import Foundation
 
 // TODO use CodingKey
 
+// dog breed Model
 struct DogBreed: Decodable, Identifiable {
 
     let id: Int
@@ -26,6 +27,7 @@ struct DogBreed: Decodable, Identifiable {
 
 }
 
+// dog breed unit
 struct DogUnit: Decodable {
 
     let imperial: String
@@ -33,6 +35,7 @@ struct DogUnit: Decodable {
 
 }
 
+// dog breed image 
 struct DogImage: Decodable {
 
     let url: String
